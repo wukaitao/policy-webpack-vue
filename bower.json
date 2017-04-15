@@ -1,0 +1,26 @@
+{
+  "name": "policy-webpack-vue",
+  "description": "The project whitch develop by webpack & vue.",
+  "main": "build/dev-server.js",
+  "authors": [
+    "Nicky.Wu"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "policy",
+    "webpack",
+    "vue"
+  ],
+  "homepage": "https://github.com/wukaitao/policy-webpack-vue",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node"
+  ],
+  "private": true,
+  "dependencies": {
+    "jquery": "~3.1.1",
+    "fetch": "~2.0.1"
+  }
+}
