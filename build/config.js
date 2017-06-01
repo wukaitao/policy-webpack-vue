@@ -12,12 +12,16 @@ module.exports = {
 	module: {
 		loaders: [
 			{
-				test: /\.(js|jsx)$/,
+				test: /\.(js)$/,
 				exclude: /node_modules/,
 				loader: 'babel',
 				query: {
-					presets: ['es2015','react']
+					presets: ['es2015','stage-2']
 				}
+			},
+			{
+				test: /\.vue$/,
+				loader: 'vue'
 			},
 			{
 				test: /\.json$/,

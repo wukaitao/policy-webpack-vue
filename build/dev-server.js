@@ -1,6 +1,7 @@
 ﻿const HtmlWebpackPlugin =  require('html-webpack-plugin');//生成html中间件
 const hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true';//热重载(重新刷新)
 const proxyMiddleware = require('http-proxy-middleware');//代理服务器
+const autoprefixer = require('autoprefixer');//样式添加浏览器前缀
 const webpack = require('webpack');//打包工具
 const merge = require('webpack-merge');//合并
 const path = require('path');//路径中间件
@@ -8,7 +9,7 @@ const express = require('express');//框架
 const opn = require('opn');//浏览器打开地址
 const app = express();//web框架
 const port = '1860';//端口
-const publicPath = 'http://localhost:'+port+'/';
+const publicPath = 'http://localhost:'+port+'/';//文件路径
 const baseWebpackConfig = require('./config');//基本打包配置
 
 const config = merge(baseWebpackConfig,{
@@ -31,6 +32,12 @@ const config = merge(baseWebpackConfig,{
 			}
 		]
 	},
+	vue: {
+		loaders: ['vue-style','style','css?sourceMap','resolve-url'],
+		postcss: autoprefixer({
+			browsers: ['last 2 versions']
+		})
+	},
 	plugins: [
   		new webpack.optimize.OccurenceOrderPlugin(),
   		new webpack.HotModuleReplacementPlugin(),//热重载
@@ -38,6 +45,7 @@ const config = merge(baseWebpackConfig,{
   		new HtmlWebpackPlugin({
   			filename: 'index.html',//文件名
   			title: 'my first project by webpack.',//标题(会被template模板覆盖)
+  			favicon: path.resolve(__dirname,'../client/assets/images/favorite.ico'),//图标
   			template: path.resolve(__dirname,'../client/main.html'),//模板
   			inject: true//是否插入到body
   		})
@@ -70,11 +78,11 @@ app.use(hotMiddleWare);//注入热重载
 app.use(express.static('./client'));//静态目录
 //代理服务器
 const proxyTable = {
-	'/hmc_ghb_server/': {
-		target: 'http://hms-uat.cignacmb.com/hmc_ghb_server/',
+	'/policy/': {
+		target: 'http://www.baidu.com/policy/',
 		changeOrigin: true,
 		pathRewrite: {
-			'^/hmc_ghb_server/': ''
+			'^/policy/': ''
 		}
 	}
 };
