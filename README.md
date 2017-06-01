@@ -16,6 +16,7 @@ vue开发webpack打包的cms系统
     * webpack-hot-middleware:热重载
     * opn:浏览器打开地址
     
+    * vue:MVVM框架
     * vue-router:vue路由
     * vue-style-loader:vue文件样式编译器
     * vuex:vue数据仓库

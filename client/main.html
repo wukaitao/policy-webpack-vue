@@ -3,11 +3,17 @@
 	<head>
 		<meta charset="utf-8"/>
 		<title>POLICY管理系统</title>
-		<link rel="Shortcut Icon" href="/assets/images/favorite.ico">
 	</head>
 	
 	<body>
-	    <div id="app"></div>
+	    <div id="app">
+	    	<head-nav></head-nav>
+			<router-view></router-view>
+			<popup></popup>
+	    </div>
+	    <div id="imageOne"><img src="assets/images/pic-one.jpg"/></div>
+	    <div style="text-align: center;"><img src="assets/images/ico_logo .png"/></div>
+	    <div class="image-two"></div>
 		<script type="text/javascript" src="../assets/lib/charfirst.pinyin.js"></script>
 		<script type="text/javascript" src="../assets/lib/ueditor/ueditor.config.js"></script>
 		<script type="text/javascript" src="../assets/lib/ueditor/ueditor.all.js"></script>

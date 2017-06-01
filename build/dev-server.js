@@ -34,6 +34,9 @@ const config = merge(baseWebpackConfig,{
 	},
 	vue: {
 		loaders: ['vue-style','style','css?sourceMap','resolve-url'],
+		//loaders: {
+		//	js: 'babel'
+		//},
 		postcss: autoprefixer({
 			browsers: ['last 2 versions']
 		})
