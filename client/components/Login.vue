@@ -6,6 +6,7 @@
 	</div>
 </template>
 <script>
+import md5 from 'md5';
 console.log('Login.vue');
 export default {
 	data(){
@@ -14,7 +15,7 @@ export default {
 		}
 	},
 	created(){
-		console.log($.md5('Nicky.Wu'));
+		console.log(md5('Nicky.Wu'));
 		//UE.getEditor('editorWrap');
 	}
 }

@@ -55,8 +55,3 @@ new Vue({
 	components: {App}
 });
 */
-console.log('vue webpack yes.js');
-//console.log($.md5('Nicky.Wu'));
-//$('.image-two').on('click',function(){
-//	console.log('image-two');
-//});

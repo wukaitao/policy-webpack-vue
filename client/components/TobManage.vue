@@ -5,7 +5,7 @@
 	</div>
 </template>
 <script>
-console.log('Login.vue');
+console.log('TobManage.vue');
 export default {
 	data(){
 		return{

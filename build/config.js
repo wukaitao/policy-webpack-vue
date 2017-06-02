@@ -1,4 +1,5 @@
 const path = require('path');//路径中间件
+const autoprefixer = require('autoprefixer');//样式添加浏览器前缀
 
 module.exports = {
 	entry: {
@@ -9,16 +10,38 @@ module.exports = {
 			'./client/main.js'
 		]
 	},
+	resolve: {
+		extensions: ['', '.js', '.vue'],
+		fallback: [path.join(__dirname, '../node_modules')],
+		alias: {
+			'vue$': 'vue/dist/vue',
+			'client': path.resolve(__dirname, '../client'),
+			'assets': path.resolve(__dirname, '../client/assets'),
+			'components': path.resolve(__dirname, '../client/components')
+		}
+	},
+	resolveLoader: {
+		fallback: [path.join(__dirname, '../node_modules')]
+	},
+	vue: {
+		loaders: {
+		    css: 'vue-style!css',
+		    postcss: 'vue-style!css',
+		    sass: 'vue-style!css!sass?indentedSyntax',
+		    js: 'babel'
+		},
+		postcss: autoprefixer({
+			browsers: ['last 2 versions']
+		})
+	},
+    babel: {
+        presets: ['es2015','stage-2']
+    },
 	module: {
 		loaders: [
 			{
 				test: /\.(js)$/,
-				exclude: /node_modules/,
-				loader: 'babel',
-				query: {
-					presets: ['es2015','stage-2'],
-					plugins: ['transform-runtime']
-				}
+				loader: 'babel'
 			},
 			{
 				test: /\.vue$/,

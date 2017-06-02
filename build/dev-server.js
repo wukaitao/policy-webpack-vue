@@ -1,7 +1,6 @@
 ﻿const HtmlWebpackPlugin =  require('html-webpack-plugin');//生成html中间件
 const hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true';//热重载(重新刷新)
 const proxyMiddleware = require('http-proxy-middleware');//代理服务器
-const autoprefixer = require('autoprefixer');//样式添加浏览器前缀
 const webpack = require('webpack');//打包工具
 const merge = require('webpack-merge');//合并
 const path = require('path');//路径中间件
@@ -31,15 +30,6 @@ const config = merge(baseWebpackConfig,{
 				loaders: ['style','css?sourceMap','resolve-url','sass?sourceMap']
 			}
 		]
-	},
-	vue: {
-		loaders: ['vue-style','style','css?sourceMap','resolve-url'],
-		//loaders: {
-		//	js: 'babel'
-		//},
-		postcss: autoprefixer({
-			browsers: ['last 2 versions']
-		})
 	},
 	plugins: [
   		new webpack.optimize.OccurenceOrderPlugin(),
