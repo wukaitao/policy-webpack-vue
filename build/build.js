@@ -1,7 +1,6 @@
 ﻿const HtmlWebpackPlugin =  require('html-webpack-plugin');//生成html中间件
 const ExtractTextPlugin = require('extract-text-webpack-plugin');//抽取css样式
 const CopyWebpackPlugin = require('copy-webpack-plugin');//复制文件
-const autoprefixer = require('autoprefixer');//样式添加浏览器前缀
 const webpack = require('webpack');//打包工具
 const merge = require('webpack-merge');//合并
 const path = require('path');//路径中间件
@@ -22,12 +21,6 @@ const config = merge(baseWebpackConfig,{
 				loader: ExtractTextPlugin.extract('style','css!sass','resolve-url')
 			}
 		]
-	},
-	vue: {
-		loaders: ['vue-style','style','css','resolve-url'],
-		postcss: autoprefixer({
-			browsers: ['last 2 versions']
-		})
 	},
 	plugins: [
   		new ExtractTextPlugin('assets/css/[name].[hash].css'),//抽取css样式

@@ -28,15 +28,16 @@ module.exports = {
 		    css: 'vue-style!css',
 		    postcss: 'vue-style!css',
 		    sass: 'vue-style!css!sass?indentedSyntax',
+		    scss: 'vue-style!css!sass',
 		    js: 'babel'
-		},
-		postcss: autoprefixer({
-			browsers: ['last 2 versions']
-		})
+		}
 	},
     babel: {
         presets: ['es2015','stage-2']
     },
+	postcss: autoprefixer({
+		browsers: ['last 2 versions']
+	}),
 	module: {
 		loaders: [
 			{
