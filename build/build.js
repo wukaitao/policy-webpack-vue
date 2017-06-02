@@ -1,6 +1,6 @@
 ﻿const HtmlWebpackPlugin =  require('html-webpack-plugin');//生成html中间件
 const ExtractTextPlugin = require('extract-text-webpack-plugin');//抽取css样式
-const TransferWebpackPlugin = require('transfer-webpack-plugin');//复制文件
+const CopyWebpackPlugin = require('copy-webpack-plugin');//复制文件
 const autoprefixer = require('autoprefixer');//样式添加浏览器前缀
 const webpack = require('webpack');//打包工具
 const merge = require('webpack-merge');//合并
@@ -31,7 +31,7 @@ const config = merge(baseWebpackConfig,{
 	},
 	plugins: [
   		new ExtractTextPlugin('assets/css/[name].[hash].css'),//抽取css样式
-  		new TransferWebpackPlugin([
+  		new CopyWebpackPlugin([
   			//form:绝对目录;to:相对output.path目录
   			{from: path.resolve(__dirname,'../client/assets/json'),to: 'assets/json'},//复制json文件
   			{from: path.resolve(__dirname,'../client/assets/lib'),to: 'assets/lib'}//复制lib文件
